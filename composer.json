@@ -2,7 +2,7 @@
   "name": "alleyinteractive/es-admin",
   "description": "A drop in for Jetpack powered elastic search.",
   "type": "library",
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "authors": [
     {
       "name": "Matthew Boynes",
