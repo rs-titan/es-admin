@@ -6,12 +6,6 @@
       "email": "noreply@alleyinteractive.com"
     }
   ],
-  "require-dev": {
-    "squizlabs/php_codesniffer": "2.*",
-    "wp-coding-standards/wpcs": "dev-master"
-  },
-  "scripts": {
-    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs",
-    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs"
-  }
+  "minimum-stability": "stable",
+  "require": {}
 }
