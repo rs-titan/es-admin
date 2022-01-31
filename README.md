@@ -1,27 +1,29 @@
-=== ES Admin ===
-Contributors: mboynes, alleyinteractive
-Tags: search, admin, wp-admin, faceted search, elasticsearch
-Requires at least: 4.5
-Tested up to: 4.6
-Stable tag: 0.1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# ES Admin
 
 Insanely powerful admin search, powered by Elasticsearch.
 
-== Description ==
+
+Contributors: mboynes, alleyinteractive  
+Tags: search, admin, wp-admin, faceted search, elasticsearch  
+Requires at least: 4.5  
+Tested up to: 4.6  
+Stable tag: 0.1.0  
+License: GPLv2 or later  
+License URI: [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
+
+## Description
 
 Adds a powerful faceted search page to the admin area to search all posts across all post types.
 
 Optionally, this plugin can also replace core's post search forms throughout the entire admin area to leverage Elasticsearch for faster, more relevant search results.
 
-== Prerequisites ==
+## Prerequisites
 
 * Elasticsearch server
 * Elasticsearch plugin/adapter (e.g. [SearchPress](https://github.com/alleyinteractive/searchpress)
 * [ES_WP_Query](https://github.com/alleyinteractive/es-wp-query) if you want to use the optional core search replacement.
 
-== Installation ==
+## Installation
 
 ES Admin is designed to be able to work with any Elasticsearch index, regardless of how the data is mapped. In order to accomplish this, ES Admin requires you to register an "Adapter", which maps appropriate post fields (e.g. `post_content`) to the Elasticsearch index path (e.g. `post_content.analyzed`). ES Admin currently comes with four adapters: [SearchPress](https://github.com/alleyinteractive/searchpress), [WordPress.com](https://vip-svn.wordpress.com/plugins/wpcom-elasticsearch/wpcom-elasticsearch.php) (used by WordPress.com VIP sites hosted on the main WordPress.com platform), [Jetpack Search](https://jetpack.com/support/search/) (available on VIP Go or as part of Jetpack's Professional Plan), and a generic adapter primarily used for unit testing. You aren't limited to using one of the included adapters, you can very easily build your own to work with your Elasticsearch plugin of choice by extending the `ES_Admin\Adapters\Adapter` abstract class. See the [Generic Adapter](https://github.com/alleyinteractive/es-admin/blob/master/lib/adapters/class-generic.php) as an example to create your own.
 
@@ -29,7 +31,7 @@ Once you have your adapter, you register it with ES Admin using the `es_admin_ad
 
 ```php
 add_filter( 'es_admin_adapter', function() {
-	return '\ES_Admin\Adapters\SearchPress';
+    return '\ES_Admin\Adapters\SearchPress';
 } );
 ```
 
@@ -39,9 +41,9 @@ Here's an example setting up ES_WP_Query to use its SearchPress adapter, and doi
 
 ```php
 add_action( 'after_setup_theme', function() {
-	if ( function_exists( 'es_wp_query_load_adapter' ) ) {
-		es_wp_query_load_adapter( 'searchpress' );
-	}
+    if ( function_exists( 'es_wp_query_load_adapter' ) ) {
+        es_wp_query_load_adapter( 'searchpress' );
+    }
 }, 5 );
 ```
 
